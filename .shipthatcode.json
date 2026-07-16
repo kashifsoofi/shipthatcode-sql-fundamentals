@@ -1,0 +1,7 @@
+{
+  "course": "sql-fundamentals",
+  "language": "sql",
+  "language_id": 82,
+  "entrypoint": "main.sql",
+  "version": 1
+}
