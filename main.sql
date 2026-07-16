@@ -11,4 +11,4 @@ INSERT INTO books VALUES
 SELECT b.title, a.name
 FROM books b
 JOIN authors a ON a.id = b.author_id
-ORDER BY b.Name ASC
+ORDER BY b.Name ASC;
