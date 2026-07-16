@@ -1,8 +1,14 @@
-CREATE TABLE products (category TEXT, price INTEGER);
-INSERT INTO products VALUES ('food', 10);
-INSERT INTO products VALUES ('tech', 500);
-INSERT INTO products VALUES ('food', 25);
-INSERT INTO products VALUES ('tech', 1500);
-INSERT INTO products VALUES ('book', 30);
+CREATE TABLE authors (id INTEGER, name TEXT);
+CREATE TABLE books (title TEXT, author_id INTEGER);
 
-SELECT category, SUM(price) FROM products GROUP BY category ORDER BY category ASC;
+INSERT INTO authors VALUES (1, 'Asimov'), (2, 'Le Guin'), (3, 'Tolkien');
+INSERT INTO books VALUES
+    ('Foundation', 1),
+    ('Lord of the Rings', 3),
+    ('Hobbit', 3),
+    ('Dispossessed', 2);
+
+SELECT b.title, a.name
+FROM books b
+JOIN authors a ON a.id = b.author_id
+ORDER BY b.Name ASC
