@@ -1,13 +1,11 @@
-CREATE TABLE employees (name TEXT, salary INTEGER);
-INSERT INTO employees VALUES
-    ('Ada', 95000),
-    ('Bob', 50000),
-    ('Carol', 80000),
-    ('Dan', 55000);
+CREATE TABLE users (
+     id INTEGER PRIMARY KEY,
+     email TEXT NOT NULL UNIQUE,
+     age INTEGER CHECK (age >= 0 AND age < 150),
+     role TEXT NOT NULL DEFAULT 'member'
+ );
 
--- TODO: UPDATE Bob's salary to 90000
-UPDATE employees SET salary = 90000 WHERE name = 'Bob';
--- TODO: DELETE Carol
-DELETE FROM employees WHERE Name = 'Carol';
--- TODO: SELECT name || '|' || salary ORDER BY name
-SELECT name, salary FROM employees ORDER BY name;
+INSERT INTO users (id, email, age) VALUES (1, 'ada@x.io', 36);
+INSERT INTO users VALUES (2, 'bob@x.io', 50, 'admin');
+
+SELECT id || '|' || email || '|' || age || '|' || role FROM users ORDER BY id;
